@@ -18,7 +18,7 @@ This project is a deployable Honeypot system designed to detect and log unauthor
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/YOUR_GITHUB_USERNAME/Honeypot-as-a-Service.git
+git clone https://github.com/unmeshdatta/Honeypot-as-a-Service.git
 cd Honeypot-as-a-Service
 ```
 
