@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honeypot Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Honeypot Dashboard</h1>
+    <canvas id="attackChart"></canvas>
+    <script>
+        fetch('/logs')
+        .then(response => response.json())
+        .then(data => {
+            const ctx = document.getElementById('attackChart').getContext('2d');
+            const labels = data.map(log => log[0]);
+            const values = data.map(log => log[2]);
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Attack Attempts',
+                        data: values,
+                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        });
+    </script>
+</body>
+</html>
